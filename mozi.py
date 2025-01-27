@@ -50,6 +50,13 @@ def kihasznaltsag(moziTerem:list):
     kihasznalt = (darab / 300) * 100
     return int(kihasznalt * 100)/100
 
+def teljesAruJegyek(moziTerem:list):
+    teljesAruJegy = 0
+    for sor in moziTerem:
+        for hely in sor:
+            if hely == 2500:
+                teljesAruJegy += 1
+    return teljesAruJegy
 
 moziterem = []
 feltoltes(moziterem)
@@ -62,3 +69,4 @@ else:
     print("nincs hely! :(")
 print("Az összes bevétel", bevetel(moziterem))
 print("A kihasználtság:", kihasznaltsag(moziterem), "%")
+print("Teljes árú jegyek száma:", teljesAruJegyek(moziterem))
