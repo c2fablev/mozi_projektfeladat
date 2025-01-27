@@ -32,6 +32,14 @@ def helykereses(moziTerem:list, helyekSzama:int):
                 return i
         i += 1
 
+def bevetel(moziTerem:list):
+    szumma = 0
+    for sor in moziTerem:
+        for hely in sor:
+            if hely != "|":
+                szumma += hely
+    return szumma
+
 moziterem = []
 feltoltes(moziterem)
 for sor in moziterem:
@@ -41,3 +49,4 @@ if helykereses(moziterem, jegyek) != None:
     print(helykereses(moziterem, jegyek))
 else:
     print("nincs hely! :(")
+print("Az összes bevétel", bevetel(moziterem))
