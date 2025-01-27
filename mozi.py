@@ -40,6 +40,17 @@ def bevetel(moziTerem:list):
                 szumma += hely
     return szumma
 
+def kihasznaltsag(moziTerem:list):
+    darab = 0
+    for sor in moziTerem:
+        for hely in sor:
+            if hely != "|":
+                if hely != 0:
+                    darab += 1
+    kihasznalt = (darab / 300) * 100
+    return int(kihasznalt * 100)/100
+
+
 moziterem = []
 feltoltes(moziterem)
 for sor in moziterem:
@@ -50,3 +61,4 @@ if helykereses(moziterem, jegyek) != None:
 else:
     print("nincs hely! :(")
 print("Az összes bevétel", bevetel(moziterem))
+print("A kihasználtság:", kihasznaltsag(moziterem), "%")
