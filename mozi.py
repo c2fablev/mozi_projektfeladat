@@ -60,13 +60,13 @@ def teljesAruJegyek(moziTerem:list):
 
 moziterem = []
 feltoltes(moziterem)
-for sor in moziterem:
-    print(sor)
+# for sor in moziterem:
+#     print(sor)
 jegyek = jegyVasarlas(jegyek)
 if helykereses(moziterem, jegyek) != None:
     print(helykereses(moziterem, jegyek))
 else:
     print("nincs hely! :(")
-print("Az összes bevétel", bevetel(moziterem))
+print("Az összes bevétel:", bevetel(moziterem))
 print("A kihasználtság:", kihasznaltsag(moziterem), "%")
 print("Teljes árú jegyek száma:", teljesAruJegyek(moziterem))
