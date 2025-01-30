@@ -15,7 +15,11 @@ def feltoltes(lista:list):
 def jegyVasarlas(szam:int):
     while szam <2 or szam >5:
         print("Hány jegyet szeretne vásárolni? (2-5)", end="")
-        szam = int(input())
+        try:
+            szam = int(input())
+        except:
+            print("Egész zámot adjon meg!")
+            return jegyVasarlas(szam)
     return szam
 
 def helykereses(moziTerem:list, helyekSzama:int):
@@ -60,13 +64,11 @@ def teljesAruJegyek(moziTerem:list):
 
 moziterem = []
 feltoltes(moziterem)
-# for sor in moziterem:
-#     print(sor)
 jegyek = jegyVasarlas(jegyek)
 if helykereses(moziterem, jegyek) != None:
-    print(helykereses(moziterem, jegyek))
+    print(f"{helykereses(moziterem, jegyek)}. sorban van hely!")
 else:
-    print("nincs hely! :(")
-print("Az összes bevétel:", bevetel(moziterem))
+    print("Nincs hely! :(")
+print(f"Az összes bevétel: {bevetel(moziterem)} Ft")
 print("A kihasználtság:", kihasznaltsag(moziterem), "%")
-print("Teljes árú jegyek száma:", teljesAruJegyek(moziterem))
+print(f"Teljes árú jegyek száma: {teljesAruJegyek(moziterem)} db")
